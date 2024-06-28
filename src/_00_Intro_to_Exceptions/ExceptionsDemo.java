@@ -1,5 +1,7 @@
 package _00_Intro_to_Exceptions;
 
+import javax.swing.JOptionPane;
+
 public class ExceptionsDemo {
 
     /*
@@ -56,7 +58,17 @@ public class ExceptionsDemo {
          */
 
         // 4. Run the program. Did the stack trace print out?
-
+    	try {
+			testPositive(5);
+		} catch (NegativeNumberException e) {
+			e.printStackTrace();
+			e.scaryPopup();
+		} catch (ZeroException e) {
+			e.printStackTrace();
+			e.scaryPopup();
+		} finally {
+			finallyFunction();
+		}
     }
 
     /*
@@ -68,6 +80,21 @@ public class ExceptionsDemo {
      * critical error in their computer.
      */
 
+    static void testPositive(int x) throws NegativeNumberException, ZeroException
+    {
+    	if (x < 0)
+    	{
+    		throw new NegativeNumberException();
+    	}
+    	if (x == 0)
+    	{
+    		throw new ZeroException();
+    	}
+    }
+    
+    static void finallyFunction() {
+    	JOptionPane.showMessageDialog(null, "End Test");
+    }
     /*
      * 7. Create a static method in this class called testPositive. It should
      * take a single number as a parameter and throw a NegativeNumberException

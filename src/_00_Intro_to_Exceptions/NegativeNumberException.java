@@ -5,11 +5,6 @@ import javax.swing.JOptionPane;
 public class NegativeNumberException extends Exception {
 	void scaryPopup()
 	{
-		JOptionPane.showMessageDialog(null, "A Critical Error Has Occured");
-	}
-	
-	public static void testPositive(int x) throws Exception
-	{
-		
+		JOptionPane.showMessageDialog(null, "Number Is Negative");
 	}
 }
