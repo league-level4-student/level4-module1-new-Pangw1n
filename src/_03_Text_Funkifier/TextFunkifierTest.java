@@ -44,6 +44,7 @@ public class TextFunkifierTest {
 
     @Test
     public void testCustomString() {
-
+    	BackwardsSentence bs = new BackwardsSentence("This is also a test");
+        assertEquals("test a also is This", bs.funkifyText());
     }
 }

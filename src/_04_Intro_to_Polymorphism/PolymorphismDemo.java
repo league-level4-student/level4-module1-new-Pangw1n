@@ -18,17 +18,26 @@ class Dog extends Animal {
     public void speak() {
         System.out.println("Woof!");
     }
+    public void eat() {
+    	System.out.println("Bone");
+    }
 }
 
 class Bird extends Animal {
     public void speak() {
         System.out.println("Tweet!");
     }
+    public void eat() {
+    	System.out.println("Seeds");
+    }
 }
 
 class Fish extends Animal {
     public void speak() {
         System.out.println("Gurgle Gurgle Gurgle!");
+    }
+    public void eat() {
+    	System.out.println("Fish Food");
     }
 }
 
@@ -46,7 +55,7 @@ public class PolymorphismDemo {
          * declared as an Animal on the left side.
          */
 
-        Animal animal = new Animal();
+        Animal animal = new Dog();
 
         /*
          * 2. Call the speak method and run the program.
@@ -54,6 +63,8 @@ public class PolymorphismDemo {
          * Even though the variable was declared as an Animal, at run time it
          * will behave like whatever Animal subclass it was instantiated as.
          */
+        
+        animal.speak();
 
         /*
          * 3. Comment out the speak method of the Animal subclass you chose and
@@ -63,7 +74,7 @@ public class PolymorphismDemo {
          * chose, the next closest speak method in the class's inheritance was
          * called. In this case it was Animal class's version of speak.
          */
-
+        
         /*
          * 4. Add another method called eat to the Animal subclass you chose and
          * have it print a description of the animal eating their favorite food
@@ -83,7 +94,9 @@ public class PolymorphismDemo {
          * 6. Try casting animal into the Animal subclass you chose and calling
          * the eat method.
          */
-
+        
+        ((Dog) animal).eat();
+      
         /*
          * Polymorphism is not just limited to variables, it can also be used in
          * arrays, ArrayLists or any other data structures you are familiar

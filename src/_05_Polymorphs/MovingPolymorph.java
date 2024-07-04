@@ -3,9 +3,9 @@ package _05_Polymorphs;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class BluePolymorph extends Polymorph{
+public class MovingPolymorph extends Polymorph{
 
-	public BluePolymorph(int x, int y, int width, int height) {
+	public MovingPolymorph(int x, int y, int width, int height) {
 		super(x, y, width, height);
 	}
 
