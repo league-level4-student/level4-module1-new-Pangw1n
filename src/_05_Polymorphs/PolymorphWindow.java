@@ -5,6 +5,10 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -52,16 +56,15 @@ import javax.swing.Timer;
  *  clicked. Hint: MouseListener interface.
  */
 
-public class PolymorphWindow extends JPanel implements ActionListener {
+public class PolymorphWindow extends JPanel implements ActionListener, MouseListener, MouseMotionListener {
 
-    public static final int WIDTH = 900;
-    public static final int HEIGHT = 600;
+    public static final int WIDTH = 600;
+    public static final int HEIGHT = 500;
 
     private JFrame window;
     private Timer timer;
-
-    Polymorph bluePoly;
-    Polymorph redPoly;
+    
+    ArrayList<Polymorph> Polymorphs = new ArrayList<Polymorph>();
 
     public static void main(String[] args) {
         new PolymorphWindow().buildWindow();
@@ -70,13 +73,15 @@ public class PolymorphWindow extends JPanel implements ActionListener {
     public void buildWindow() {
         window = new JFrame("IT'S MORPHIN' TIME!");
         window.add(this);
-        window.getContentPane().setPreferredSize(new Dimension(500, 500));
+        window.getContentPane().setPreferredSize(new Dimension(600, 500));
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.pack();
         window.setVisible(true);
 
-        bluePoly = new BluePolymorph(50, 50, 50, 50);
-        redPoly = new RedPolymorph(150, 100, 50, 50);
+        Polymorphs.add(new BluePolymorph(50, 50, 50, 50));
+        Polymorphs.add(new RedPolymorph(150, 100, 50, 50));
+        Polymorphs.add(new MovingPolymorph(50, 200, 50, 50));
+        Polymorphs.add(new FollowingPolymorph(0, 0, 10, 10));
 
         timer = new Timer(1000 / 30, this);
         timer.start();
@@ -85,17 +90,62 @@ public class PolymorphWindow extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         // draw background
         g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(0, 0, 500, 500);
+        g.fillRect(0, 0, 600, 500);
 
         // draw polymorph
-        bluePoly.draw(g);
-        redPoly.draw(g);
+        for(Polymorph p : Polymorphs)
+        {
+        	p.draw(g);
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         repaint();
-        bluePoly.update();
-        redPoly.update();
+        for(Polymorph p : Polymorphs)
+        {
+        	p.update();
+        }
     }
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+	}
 }
