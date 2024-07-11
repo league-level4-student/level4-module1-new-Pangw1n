@@ -19,5 +19,4 @@ public class BluePolymorph extends Polymorph{
     public void update() {
         
     }
-	
 }

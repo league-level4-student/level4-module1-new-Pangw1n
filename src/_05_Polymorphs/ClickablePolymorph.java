@@ -3,9 +3,10 @@ package _05_Polymorphs;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class FollowingPolymorph extends Polymorph{
+import javax.swing.JOptionPane;
 
-	public FollowingPolymorph(int x, int y, int width, int height) {
+public class ClickablePolymorph extends Polymorph {
+	public ClickablePolymorph(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		// TODO Auto-generated constructor stub
 	}
@@ -18,7 +19,11 @@ public class FollowingPolymorph extends Polymorph{
 
     @Override
     public void update() {
-		setX(PolymorphWindow.MOUSE_X);
-		setY(PolymorphWindow.MOUSE_Y);
+		
+    }
+    
+    public void onClick()
+    {
+    	System.out.println("Polymorph Clicked");
     }
 }
