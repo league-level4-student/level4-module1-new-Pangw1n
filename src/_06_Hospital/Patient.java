@@ -5,16 +5,11 @@ public class Patient {
 	
 	public void checkPulse()
 	{
-		
+		feelsCaredFor = true;
 	}
 	
 	public boolean feelsCaredFor()
 	{
 		return feelsCaredFor;
-	}
-	
-	public void treat()
-	{
-		feelsCaredFor = true;
 	}
 }
